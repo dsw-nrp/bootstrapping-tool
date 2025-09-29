@@ -1,0 +1,47 @@
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = 'dsw-bootstrapper'
+version = '0.1.0'
+description = 'DSW Bootstrapper for building seed recipes'
+readme = 'README.md'
+keywords = ['dsw', 'bootstrap', 'seed', 'recipe']
+license = { text = 'Apache License 2.0' }
+authors = [
+    { name = 'Marek Suchánek', email = 'marek.suchanek@cvut.cz' }
+]
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'License :: OSI Approved :: Apache Software License',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3.12',
+    'Topic :: Utilities',
+]
+requires-python = '>=3.12, <4'
+dependencies = [
+    'fastapi',
+    'jinja2',
+    'minio',
+    'python-dotenv',
+    'sqlalchemy',
+    'uvicorn',
+]
+
+[project.urls]
+Homepage = 'https://ds-wizard.org'
+Repository = 'https://github.com/dsw-nrp/bootstrapping-tool'
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.setuptools.packages.find]
+namespaces = true
+where = ['src']
+
+[tool.setuptools.package-data]
+'*' = ['*.css', '*.js', '*.j2', '*.png', '*.html']
+
+[tool.distutils.bdist_wheel]
+universal = true
